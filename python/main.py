@@ -11,7 +11,7 @@ from contextlib import asynccontextmanager
 import json
 import hashlib
 
-
+db = "db/database.sqlite"
 ## Define the path to the images & sqlite3 database
 images = pathlib.Path(__file__).parent.resolve() / "images"
 db = pathlib.Path(__file__).parent.resolve() / "db" / "mercari.sqlite3"
@@ -33,8 +33,10 @@ def get_db():
 
 # STEP 5-1: set up the database connection
 def setup_database():
+    if not os.path.exists(db):
+        open(db, 'a').close()
     conn = sqlite3.connect(db)
-    cursor = conn.cursor()
+    cursor = conn.cursor()  # Fixed this line
     sql_file = pathlib.Path(__file__).parent.resolve() / "db" / "items.sql"
     with open(sql_file, "r") as f:
         cursor.executescript(f.read())
