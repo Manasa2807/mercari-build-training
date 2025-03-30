@@ -1,3 +1,10 @@
+name: Build Docker Image
+
+on:
+  push:
+    branches:
+      - main
+
 name: build
 run-name: ${{ github.actor }} is building ${{ github.ref_name }} 🚀
 on: [push]
