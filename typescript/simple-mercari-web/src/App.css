@@ -14,26 +14,100 @@
 }
 
 .Listing {
-  background-color: #222427;
-  min-height: 8vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: left;
-  font-size: calc(10px + 1vmin);
-  color: white;
+  max-width: 400px;
+  margin: 20px auto; /* Center the form */
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
 }
 
-.ItemList {
-  background-color: #222427;
-  min-height: 8vh;
+.Listing input,
+.Listing select {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.Listing button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.Listing button:hover {
+  background-color: #0056b3;
+}
+
+
+/* Container to center items on the page */
+.ItemListContainer {
+  width: 60%; /* Adjust width to cover the middle portion */
+  margin: auto; /* Centers horizontally */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: left;
-  font-size: calc(10px + 1vmin);
-  color: white;
+  gap: 20px;
+  padding: 20px;
 }
+
+/* Each item row */
+.ItemList {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  transition: transform 0.3s ease-in-out;
+  width: 100%; /* Ensures full width inside container */
+}
+
+/* Image section */
+.ItemImage {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+/* Text details */
+.ItemDetails {
+  flex-grow: 1; /* Takes the remaining space */
+  display: flex;
+  flex-direction: column;
+}
+
+.ItemName {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.ItemCategory {
+  font-size: 18px;
+  color: gray;
+}
+
+/* Ensure content stays centered on the screen */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Takes full viewport height */
+  background-color: #f5f5f5; /* Light gray background */
+}
+
+
+
 
 .App-link {
   color: #61dafb;

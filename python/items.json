@@ -4,6 +4,11 @@
             "name": "jacket",
             "category": "fashion",
             "image_name": "ad55d25f2c10c56522147b214aeed7ad13319808d7ce999787ac8c239b24f71d.jpg"
+        },
+        {
+            "name": "lion",
+            "category": "animal",
+            "image_name": "184be0483d9de83d6b44eb24aac4cd59ecb514656aa9355dd25c01978f2baf02.jpg"
         }
     ]
 }

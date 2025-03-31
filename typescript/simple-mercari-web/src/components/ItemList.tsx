@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Item, fetchItems } from '~/api';
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:9000';
 const PLACEHOLDER_IMAGE = import.meta.env.VITE_FRONTEND_URL + '/logo192.png';
 
 interface Prop {
@@ -29,20 +30,26 @@ export const ItemList = ({ reload, onLoadCompleted }: Prop) => {
   }, [reload, onLoadCompleted]);
 
   return (
-    <div>
+    <div className="ItemListContainer">
       {items?.map((item) => {
         return (
           <div key={item.id} className="ItemList">
-            {/* TODO: Task 2: Show item images */}
-            <img src={PLACEHOLDER_IMAGE} />
-            <p>
-              <span>Name: {item.name}</span>
-              <br />
-              <span>Category: {item.category}</span>
-            </p>
+            <img
+              src={item.image_name ? `${BACKEND_URL}/images/${item.image_name}` : PLACEHOLDER_IMAGE}
+              alt="Item Image"
+              className="ItemImage"
+            />
+
+            <div className="ItemDetails">
+              <p>
+                <span className="ItemName">Name: {item.name}</span>
+                <br />
+                <span className="ItemCategory">Category: {item.category}</span>
+              </p>
+            </div>
           </div>
         );
       })}
     </div>
-  );
+);
 };
