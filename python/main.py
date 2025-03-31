@@ -117,7 +117,8 @@ def add_item(
     
     item = Item(name=name, category=category, image_name=image_name)
     insert_item(item)
-    return AddItemResponse({"message": f"item received: {name}"})
+    # print(f"Response: {AddItemResponse(message=f'item received: {name}')}")  
+    return AddItemResponse(message=f"item received: {name}").model_dump()
 
 # get_items is a handler to return the list of items for GET /items .
 @app.get("/items")

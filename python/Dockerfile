@@ -11,12 +11,14 @@ RUN addgroup -S mercari && adduser -S trainee -G mercari
 WORKDIR /app
 
 # Ensure the `db` directory exists and set correct permissions
-RUN mkdir -p /app/db && \
-    chown -R trainee:mercari /app/db && \
-    chmod -R 775 /app/db
+RUN mkdir -p /app/db /app/images && \
+    chown -R trainee:mercari /app/db /app/images && \
+    chmod -R 775 /app/db /app/images
 
 # Copy application files
 COPY . .
+
+RUN chmod 777 /app/db /app/items.json
 
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
